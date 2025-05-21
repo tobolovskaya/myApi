@@ -11,7 +11,7 @@ class RollController extends Controller
      */
     public function index()
     {
-        return "Hello!";
+        return "Hello";
         //
     }
 
