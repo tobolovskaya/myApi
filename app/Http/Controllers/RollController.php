@@ -23,9 +23,28 @@ class RollController extends Controller
      * Store a newly created resource in storage.
      */
     public function store(Request $request)
-    {
-        //
-    }
+{
+    return response()->json([
+        'name' => 'Nord-Salten Kraft AS',
+        'address' => 'Strandveien 2, 8276 Ulvsvåg',
+        'working_hours' => 'kl 08.00 - 15.00',
+        'phone' => '75 77 10 00',
+        'email' => 'firmapost@nordsaltenkraft.no',
+        'website' => 'nordsaltenkraft.no',
+        'description' => 'Konsernet Nord-Salten Kraft har lange og sterke tradisjoner i Hamarøy, Steigen, Sørfold og tidligere Tysfjord kommune. ',
+        'social_media' => [
+            'instagram' => 'https://www.instagram.com/nordsaltenkraft',
+            'facebook' => 'https://www.facebook.com/profile.php?id=100057613142996',
+        ],
+    ]);
+}
+
+    public function status()
+{
+    return response()->json([
+        'status' => 'active'
+    ]);
+}
 
     /**
      * Display the specified resource.
