@@ -1,6 +1,6 @@
-# API Ninja — Project on Laravel 11
+# API — Project on Laravel 11
 
-This is a sample project for the **API Ninja** workshop, where we explore the fundamentals of REST API development. The project includes models for **User**, **Product**, and **Order**, which are used to practice creating and using CRUD endpoints (Create, Read, Update, Delete).
+This is a sample project for the **API** workshop, where we explore the fundamentals of REST API development. The project includes models for **User**, **Product**, and **Order**, which are used to practice creating and using CRUD endpoints (Create, Read, Update, Delete).
 
 ## Requirements
 
