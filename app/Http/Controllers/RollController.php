@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Http;
 
 class RollController extends Controller
 {
@@ -46,6 +47,19 @@ class RollController extends Controller
     ]);
 }
 
+    public function external()
+    {
+        $baseUrl = 'https://api.unsplash.com';
+        $key = 'Ck236-dT41svCXU7X0tHbfGI08o5c_etxUUk60GR53U';
+        $path = '/photos/random';
+
+        $response = Http::withHeaders([
+            'Authorization' => 'Client-ID ' . $key
+        ])->get($baseUrl . $path);
+
+        return response()->json($response->json());
+        //
+    }
     /**
      * Display the specified resource.
      */

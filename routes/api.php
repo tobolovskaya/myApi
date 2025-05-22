@@ -11,6 +11,9 @@ use App\Http\Controllers\OrderController;
 //http://myapi.test/api/roll
 Route::get('/roll', [RollController::class, 'index']);
 
+//http://127.0.0.1:8000/api/external
+Route::get('/external', [RollController::class, 'external']);
+
 //http://127.0.0.1:8000/api/status
 Route::get('/status', [RollController::class, 'status']);
 
