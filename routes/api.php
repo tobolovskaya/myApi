@@ -5,6 +5,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\RollController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\OrderController;
+
 
 //http://myapi.test/api/roll
 Route::get('/roll', [RollController::class, 'index']);
@@ -30,3 +32,6 @@ Route::delete('/users/{user}', [UserController::class, 'delete']);
 
 //http://127.0.0.1:8000/api/products
 Route::apiResource('products', ProductController::class);
+
+//http://127.0.0.1:8000/api/orders
+Route::apiResource('orders', OrderController::class);
