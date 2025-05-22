@@ -3,6 +3,8 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Http;
+use Illuminate\Support\Facades\Log;
 
 class Product extends Model
 {
@@ -23,6 +25,28 @@ class Product extends Model
      */
     public static function createProduct(array $data)
     {
+        // Получаем название продукта
+    $query = $data['name'] ?? 'product';
+    $key = 'Ck236-dT41svCXU7X0tHbfGI08o5c_etxUUk60GR53U';
+
+    // Запрос к Unsplash API
+    $response = Http::withHeaders([
+        'Authorization' => 'Client-ID ' . $key
+    ])->get('https://api.unsplash.com/photos/random', [
+        'query' => $query
+    ]);
+
+    if ($response->successful()) {
+        $json = $response->json();
+        // 🪵 Логируем весь ответ от Unsplash
+    \Log::info('Unsplash JSON response:', $json);
+
+        $data['image'] = $json['urls']['small'] ?? ''; // берём маленькую картинку
+    } else {
+        $data['image'] = ''; // fallback если запрос не сработал
+        \Log::error('Unsplash request failed', ['status' => $response->status()]);
+    }
+
         return self::create($data);
     }
 
